@@ -1,0 +1,124 @@
+:root{--primary:#2D5B8A;--secondary:#27A5A3;--surface:#F6F8FB;--background:#EFF3F8;--success:#2DBE7E;--warning:#F3A536;--error:#DA4F49;--text:#0b1a2b;--muted:#6b7a90;--radius:14px;--shadow:0 10px 30px rgba(0,0,0,.08)}
+/* Dark theme variables */
+[data-theme="dark"]{--primary:#6BA2E6;--secondary:#4CCBC8;--surface:#141922;--background:#0c1118;--success:#2DBE7E;--warning:#F3A536;--error:#DA4F49;--text:#e6ebf2;--muted:#a8b3c7;--shadow:0 10px 30px rgba(0,0,0,.6)}
+@media (prefers-color-scheme: dark){:root{color-scheme:dark}}
+@font-face{font-family:"Cairo";src:url("fonts/Cairo-ExtraLight.ttf") format("truetype");font-weight:200;font-style:normal;font-display:swap}
+@font-face{font-family:"Cairo";src:url("fonts/Cairo-Light.ttf") format("truetype");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Cairo";src:url("fonts/Cairo-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Cairo";src:url("fonts/Cairo-Medium.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Cairo";src:url("fonts/Cairo-SemiBold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Cairo";src:url("fonts/Cairo-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Cairo";src:url("fonts/Cairo-ExtraBold.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"Cairo";src:url("fonts/Cairo-Black.ttf") format("truetype");font-weight:900;font-style:normal;font-display:swap}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--background);color:var(--text);line-height:1.7;transition:background-color .25s ease,color .25s ease}
+img{max-width:100%;display:block}
+.container{width:min(1100px,90%);margin-inline:auto}
+/* Screen-reader only utility */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* Skip link for keyboard users */
+.skip-link{position:absolute;inset-inline-start:10px;top:-50px;background:var(--surface);color:var(--text);padding:8px 12px;border-radius:10px;border:1px solid color-mix(in oklab, var(--text) 15%, transparent);box-shadow:var(--shadow);text-decoration:none}
+.skip-link:focus{top:10px}
+.site-header{position:sticky;top:0;background:color-mix(in oklab, var(--surface) 85%, transparent);backdrop-filter:saturate(1.2) blur(12px);border-bottom:1px solid color-mix(in oklab, var(--text) 12%, transparent);z-index:20}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
+.brand-logo{width:36px;height:36px}
+.brand-name{font-weight:800;font-size:20px}
+.site-nav{display:flex;gap:18px}
+.site-nav a{color:var(--text);text-decoration:none;padding:8px 12px;border-radius:10px}
+.site-nav a:hover{background:var(--surface)}
+.theme-toggle{background:transparent;border:1px solid color-mix(in oklab, var(--text) 15%, transparent);border-radius:12px;padding:8px 10px;font-size:16px;cursor:pointer;color:var(--text);transition:transform .2s ease,background-color .2s ease}
+.theme-toggle:hover{transform:translateY(-1px);background:color-mix(in oklab, var(--surface) 85%, transparent)}
+.nav-toggle{display:none;background:transparent;border:0;font-size:24px}
+.hero{background:
+  radial-gradient(1200px 500px at 80% -10%, color-mix(in oklab, var(--primary) 8%, transparent), transparent 70%),
+  linear-gradient(180deg, color-mix(in oklab, var(--surface) 90%, transparent), transparent)}
+.hero-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center;padding:56px 0}
+.hero-text h1{margin:0 0 10px;font-size:40px;font-weight:800;color:var(--primary)}
+.hero-text p{margin:0 0 20px;color:var(--muted)}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.seo-lead{margin:6px 0 18px;color:color-mix(in oklab, var(--text) 60%, transparent);font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:700;transition:.2s ease;border:1px solid transparent}
+.btn-primary{background:linear-gradient(135deg, color-mix(in oklab, var(--primary) 92%, #3aa7a4 8%), var(--secondary));color:#fff;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.btn-primary::after{content:"";position:absolute;inset:-2px;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:translateX(-120%);transition:transform .6s ease}
+.btn-primary:hover::after{transform:translateX(120%)}
+.btn-primary:hover{transform:translateY(-1px);filter:brightness(1.05)}
+.btn-ghost{background:transparent;color:var(--primary);border-color:var(--primary)}
+.btn:focus-visible, button:focus-visible, a:focus-visible, .carousel-item:focus-visible{outline:3px solid color-mix(in oklab, var(--primary) 60%, #0000);outline-offset:2px;border-radius:12px}
+.coming-soon{display:flex;align-items:center;gap:10px;margin-top:18px;color:var(--muted)}
+.store-badges{display:flex;gap:10px}
+.badge{padding:8px 12px;border-radius:999px;font-weight:700;font-size:12px;border:1px dashed color-mix(in oklab, var(--text) 18%, transparent);color:color-mix(in oklab, var(--text) 65%, transparent);background:color-mix(in oklab, var(--surface) 92%, transparent)}
+.badge svg{width:16px;height:16px;vertical-align:middle;margin-inline:4px}
+.badge-play{border-color:#8cc84b}
+.badge-appstore{border-color:#6b8cff}
+.badge-windows{border-color:#0078D6}
+.badge-linux{border-color:#FCC624}
+.hero-media .device-frame{background:color-mix(in oklab, var(--surface) 70%, transparent);backdrop-filter:blur(8px) saturate(1.2);border:1px solid color-mix(in oklab, var(--text) 12%, transparent);border-radius:22px;box-shadow:var(--shadow);padding:14px}
+.features{padding:56px 0}
+.features h2,.screenshots h2,.download h2{margin:0 0 24px;font-size:28px}
+.features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.feature{background:color-mix(in oklab, var(--surface) 75%, transparent);backdrop-filter:blur(6px);border:1px solid color-mix(in oklab, var(--text) 12%, transparent);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
+.feature .icon{font-size:22px;background:var(--surface);width:40px;height:40px;display:grid;place-items:center;border-radius:10px;margin-bottom:10px}
+.feature .icon svg{width:22px;height:22px}
+.screenshots{background:var(--surface);padding:56px 0}
+.slider{position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center}
+.slides{overflow:hidden;border-radius:14px;border:1px solid color-mix(in oklab, var(--text) 12%, transparent);background:var(--background);box-shadow:var(--shadow);min-height:220px}
+.slides-track{display:flex;align-items:center;transition:transform .4s ease}
+.slides{min-height:initial;height:clamp(220px, 60vh, 700px)}
+.slide{flex:0 0 100%;width:100%;height:100%;object-fit:contain;display:block}
+.slider-btn{background:color-mix(in oklab, var(--surface) 85%, transparent);border:1px solid color-mix(in oklab, var(--text) 12%, transparent);width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:var(--text);cursor:pointer;font-size:22px}
+.slider-btn:hover{filter:brightness(1.05)}
+.dots{display:flex;gap:6px;justify-content:center;margin-top:10px}
+.dot{width:8px;height:8px;border-radius:999px;background:color-mix(in oklab, var(--text) 20%, transparent);border:1px solid color-mix(in oklab, var(--text) 20%, transparent);cursor:pointer}
+.dot.active{background:var(--primary);border-color:var(--primary)}
+.download{padding:56px 0}
+.download-inner{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.hero-compact{padding:40px 0}
+.video-section{padding:24px 0 56px}
+.video-wrapper{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1px solid color-mix(in oklab, var(--text) 12%, transparent);box-shadow:var(--shadow);background:#000}
+.video-wrapper iframe{position:absolute;inset:0;width:100%;height:100%}
+.code-viewer{background:var(--surface);border:1px solid color-mix(in oklab, var(--text) 12%, transparent);border-radius:16px;box-shadow:var(--shadow);padding:12px}
+.code-actions{display:flex;gap:10px;justify-content:flex-start;margin-bottom:10px}
+.code-viewer pre{max-height:50vh;overflow:auto;background:color-mix(in oklab, var(--background) 90%, transparent);padding:12px;border-radius:10px;color:color-mix(in oklab, var(--text) 90%, transparent);font-family:ui-monospace,SFMono-Regular,Consolas,Monaco,Menlo,monospace;font-size:12px;line-height:1.6}
+.site-footer{background:
+  radial-gradient(800px 200px at 50% 0, color-mix(in oklab, var(--primary) 6%, transparent), transparent 70%),
+  var(--surface);
+border-top:1px solid color-mix(in oklab, var(--text) 12%, transparent);margin-top:30px}
+.footer-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:18px 0}
+.brand-mini{display:flex;align-items:center;gap:10px}
+.footer-links a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:10px}
+.footer-links a:hover{color:var(--text);background:color-mix(in oklab, var(--surface) 85%, transparent)}
+.copy{color:var(--muted)}
+/* Reveal on scroll */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.show{opacity:1;transform:none}
+/* Lightbox */
+.lightbox-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;z-index:100;animation:fadeIn .2s ease}
+.lightbox-img{max-width:min(95vw,1100px);max-height:90vh;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.15)}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@media (max-width:960px){.hero-inner{grid-template-columns:1fr}.features-grid{grid-template-columns:repeat(2,1fr)}.shots-grid{grid-template-columns:repeat(3,1fr)}.download-inner{grid-template-columns:1fr}}
+@media (max-width:640px){.site-nav{display:none;position:absolute;inset-inline:0;top:60px;background:var(--surface);border-bottom:1px solid color-mix(in oklab, var(--text) 12%, transparent);flex-direction:column;padding:10px}.site-nav.open{display:flex}.nav-toggle{display:block}.features-grid{grid-template-columns:1fr}.shots-grid{grid-template-columns:repeat(2,1fr)}
+  .slides{height:clamp(200px, 45vh, 520px)}
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce){
+  *{scroll-behavior:auto !important}
+  .reveal{transition:none}
+}
+
+/* New scroll-snap carousel */
+.carousel{position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center}
+.carousel-track{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;border-radius:14px;border:1px solid color-mix(in oklab, var(--text) 12%, transparent);background:var(--background);box-shadow:var(--shadow);height:clamp(220px,60vh,700px);padding:8px}
+.carousel-track::-webkit-scrollbar{height:8px}
+.carousel-track::-webkit-scrollbar-thumb{background:color-mix(in oklab, var(--text) 20%, transparent);border-radius:999px}
+.carousel-item{scroll-snap-align:center;flex:0 0 100%;width:100%;height:100%;object-fit:contain;background:var(--surface);border-radius:12px}
+.carousel-btn{background:color-mix(in oklab, var(--surface) 85%, transparent);border:1px solid color-mix(in oklab, var(--text) 12%, transparent);width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:var(--text);cursor:pointer;font-size:22px}
+.carousel-btn:hover{filter:brightness(1.05)}
+.carousel-dots{display:flex;gap:6px;justify-content:center;margin-top:10px}
+.c-dot{width:8px;height:8px;border-radius:999px;background:color-mix(in oklab, var(--text) 20%, transparent);border:1px solid color-mix(in oklab, var(--text) 20%, transparent);cursor:pointer}
+.c-dot.active{background:var(--primary);border-color:var(--primary)}
+@media (max-width:640px){
+  .carousel-track{height:clamp(200px,45vh,520px)}
+}
